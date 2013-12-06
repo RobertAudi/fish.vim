@@ -12,6 +12,8 @@ syntax keyword fishConditional if else switch
 syntax keyword fishRepeat while for in
 syntax keyword fishLabel case
 
+syn match fishTests /\v<%(contains|test|count|not)>/ nextgroup=fishStatement,fishSpecial skipwhite
+
 syntax region fishSlice matchgroup=fishBracket start=/\v\[/ end=/\v\]/ contained contains=fishNumber,fishRange,fishCommandSubstitution,fishVar
 syntax match fishNumber /\v\d+/ contained
 syntax match fishRange /\v\.\./ contained
@@ -46,6 +48,7 @@ highlight default link fishConditional Conditional
 highlight default link fishRepeat Repeat
 highlight default link fishLabel Label
 highlight default link fishIdentifier Identifier
+highlight default link fishTests Identifier
 highlight default link fishQuote String
 highlight default link fishEscape Special
 highlight default link fishEscapeSingleQuote Special
