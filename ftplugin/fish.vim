@@ -3,6 +3,13 @@ if v:version ># 703 || v:version ==# 703 && has('patch541')
     setlocal formatoptions+=j
 endif
 
+if executable('fish')
+  setlocal omnifunc=fish#Complete
+  for s:path in split(system("fish -c 'echo $fish_function_path'"))
+    execute 'setlocal path+='.s:path
+  endfor
+endif
+
 let b:match_words =
       \ escape('<%(begin|function|if|switch|while|for)>:<end>', '<>%|)')
 
