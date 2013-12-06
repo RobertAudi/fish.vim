@@ -1,3 +1,6 @@
+setlocal comments=:#
+setlocal commentstring=#%s
+
 " Use the 'j' format option when available.
 if v:version ># 703 || v:version ==# 703 && has('patch541')
     setlocal formatoptions+=j
